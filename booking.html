@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Appointment</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="booking-section" id="book">
+  <div class="booking-container">
+    <h1>Book Your Appointment</h1>
+    <form class="booking-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <select id="doctorSelect" required>
+        <option value="">Select Doctor</option>
+        <option value="Dr. Ahmed">Dr. Ahmed</option>
+        <option value="Dr. Sarah">Dr. Sarah</option>
+        <option value="Dr. Khaled">Dr. Khaled</option>
+      </select>
+      <div class="datetime">
+        <input type="date" required>
+        <input type="time" required>
+      </div>
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </div>
+</section>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+    const selectedDoctor = localStorage.getItem('selectedDoctor');
+    if(selectedDoctor){
+        document.getElementById('doctorSelect').value = selectedDoctor;
+        localStorage.removeItem('selectedDoctor');
+    }
+});
+</script>
+
+</body>
+</html>
